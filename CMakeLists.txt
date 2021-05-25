@@ -6,6 +6,6 @@ cmake_minimum_required (VERSION 3.8)
 project ("Machine")
 
 # Add source to this project's executable.
-add_executable (Machine "Machine.cpp" "Machine.h")
+add_executable (Machine   "Machine.cpp" "libs/Machine.h" "libs/Wallet.h" "Main.cpp" "Wallet.cpp" "libs/CoffeeMachine.h" "libs/WendingMachine.h" "CoffeeMachine.cpp" "WendingMachine.cpp")
 
 # TODO: Add tests and install targets if needed.

@@ -9,9 +9,24 @@ CoffeeMachine::CoffeeMachine()
 	{"water", 0}
 	};
 }
+bool CoffeeMachine::Take(MachineItem item)
+{
+	if (Check() == "")
+	{
+		for (map<string, int>::iterator i = item.ingredients_needed.begin(); i != item.ingredients_needed.end(); i++)
+		{
+			coffee_ingredients[i->first] -= i->second;
+		}
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 bool CoffeeMachine::AddIngredient(string ingredient, int value)
 {
-	if (coffee_ingredients[ingredient])
+	if (coffee_ingredients.count(ingredient))
 	{
 		coffee_ingredients[ingredient] += value;
 		return true;
@@ -23,7 +38,7 @@ bool CoffeeMachine::AddIngredient(string ingredient, int value)
 }
 bool CoffeeMachine::TakeIngredient(string ingredient, int value)
 {
-	if (coffee_ingredients[ingredient])
+	if (coffee_ingredients.count(ingredient))
 	{
 		if (coffee_ingredients[ingredient] >= value)
 		{
@@ -35,15 +50,17 @@ bool CoffeeMachine::TakeIngredient(string ingredient, int value)
 			return false;
 		}
 	}
+	else
+	{
+		return false;
+	}
 }
 string CoffeeMachine::Check()
 {
-	for (map<string, int>::iterator i = items.begin(); i != items.end(); i++)
+	for (vector<MachineItem>::iterator i = items.begin(); i != items.end(); i++)
 	{
-		if (i->second <= 0)
-		{
-			return i->first;
-		}
+		if (i->GetQuantity() <= 0)
+			return i->Get();
 	}
 	for (map<string, int>::iterator i = coffee_ingredients.begin(); i != coffee_ingredients.end(); i++)
 	{

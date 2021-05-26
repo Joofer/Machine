@@ -6,23 +6,23 @@ Wallet::Wallet()
 	holder = "N/A";
 }
 
-Wallet::Wallet(long m, string h)
+Wallet::Wallet(double m, string h)
 {
 	money = m;
 	holder = h;
 }
 
-void Wallet::SetMoneyValue(long value)
+void Wallet::SetMoney(double value)
 {
 	money = value;
 }
 
-long Wallet::GetMoneyValue()
+double Wallet::GetMoney()
 {
 	return money;
 }
 
-void Wallet::TakeMoney(long value)
+void Wallet::TakeMoney(double value)
 {
 	money -= value;
 }

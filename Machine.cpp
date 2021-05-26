@@ -17,17 +17,21 @@ string Machine::GetName()
 {
 	return name;
 }
-void Machine::Add(string item, int value)
+void Machine::Add(MachineItem item)
 {
-	items.insert({ item, value });
+	items.push_back(item);
 }
-bool Machine::Take(string item, int value)
+void Machine::Add(vector<MachineItem>::iterator start, vector<MachineItem>::iterator end)
 {
-	if (items[item])
+	items.insert(items.end(), start, end);
+}
+bool Machine::Take(string item)
+{
+	if (FindItem(item).Get() != "N/A")
 	{
-		if (items[item] >= value)
+		if (FindItem(item).GetQuantity() >= 1)
 		{
-			items[item] -= value;
+			FindItem(item).DecreaseQuantity();
 			return true;
 		}
 		else
@@ -35,12 +39,23 @@ bool Machine::Take(string item, int value)
 			return false;
 		}
 	}
+	else
+	{
+		return false;
+	}
 }
 bool Machine::Delete(string item)
 {
-	if (items.count(item))
+	if (Find(item) != -1)
 	{
-		items.erase(item);
+		for (vector<MachineItem>::iterator i = items.begin(); i != items.end(); i++)
+		{
+			if (i->Get() == item)
+			{
+				items.erase(i);
+				break;
+			}
+		}
 		return true;
 	}
 	else
@@ -50,9 +65,9 @@ bool Machine::Delete(string item)
 }
 bool Machine::Change(string item, int value)
 {
-	if (items.count(item))
+	if (Find(item) != -1)
 	{
-		items[item] = value;
+		FindItem(item).SetQuantity(value);
 		return true;
 	}
 	else
@@ -62,23 +77,35 @@ bool Machine::Change(string item, int value)
 }
 int Machine::Find(string item)
 {
-	if (items.count(item))
+	for (int i = 0; i < items.size(); i++)
 	{
-		return items[item];
+		if (items[i].Get() == item)
+		{
+			return i;
+		}
 	}
-	else
+	return -1;
+}
+MachineItem Machine::FindItem(string item)
+{
+	map<string, int> tmap = { };
+	MachineItem* temp = new MachineItem("N/A", -1, -1);
+
+	for (int i = 0; i < items.size(); i++)
 	{
-		return -1;
+		if (items[i].Get() == item)
+		{
+			return items[i];
+		}
 	}
+	return *temp;
 }
 string Machine::Check()
 {
-	for (map<string, int>::iterator i = items.begin(); i != items.end(); i++)
+	for (vector<MachineItem>::iterator i = items.begin(); i != items.end(); i++)
 	{
-		if (i->second <= 0)
-		{
-			return i->first;
-		}
+		if (i->GetQuantity() <= 0)
+			return i->Get();
 	}
 	return "";
 }

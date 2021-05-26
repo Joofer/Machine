@@ -8,14 +8,14 @@ using namespace std;
 class Wallet
 {
 private:
-	long money;
+	double money;
 	string holder;
 public:
 	Wallet();
-	Wallet(long m, string h);
-	void SetMoneyValue(long value);
-	long GetMoneyValue();
-	void TakeMoney(long value);
+	Wallet(double m, string h);
+	void SetMoney(double value);
+	double GetMoney();
+	void TakeMoney(double value);
 	void SetHolder(string name);
 	string GetHolder();
 };

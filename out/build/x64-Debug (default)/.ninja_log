@@ -1,15 +1,11 @@
 # ninja log v5
-8	854	643664332	CMakeFiles/Machine.dir/Machine.cpp.obj	57c3282e4f4fcd02
-0	882	643664332	CMakeFiles/Machine.dir/Main.cpp.obj	fcd2fca9ac065d
-14	954	643664332	CMakeFiles/Machine.dir/CoffeeMachine.cpp.obj	6497f2c6246f33ec
-19	994	643664332	CMakeFiles/Machine.dir/Wallet.cpp.obj	18bfdd61377e2ab7
-15	472	643664698	CMakeFiles/Machine.dir/WendingMachine.cpp.obj	915277fc2ced28f7
-1	494	643664698	CMakeFiles/Machine.dir/Main.cpp.obj	fcd2fca9ac065d
-9	531	643664698	CMakeFiles/Machine.dir/Machine.cpp.obj	57c3282e4f4fcd02
-21	540	643664698	CMakeFiles/Machine.dir/CoffeeMachine.cpp.obj	6497f2c6246f33ec
-540	1153	643664699	Machine.exe	66de23f30c2a59a1
-8	709	643664767	CMakeFiles/Machine.dir/Machine.cpp.obj	57c3282e4f4fcd02
-20	732	643664767	CMakeFiles/Machine.dir/CoffeeMachine.cpp.obj	6497f2c6246f33ec
-1	739	643664767	CMakeFiles/Machine.dir/Main.cpp.obj	fcd2fca9ac065d
-14	747	643664767	CMakeFiles/Machine.dir/WendingMachine.cpp.obj	915277fc2ced28f7
-748	1132	643664767	Machine.exe	66de23f30c2a59a1
+28	844	643736404	CMakeFiles/Machine.dir/Main.cpp.obj	fcd2fca9ac065d
+34	999	643736404	CMakeFiles/Machine.dir/Machine.cpp.obj	57c3282e4f4fcd02
+20	791	643736404	CMakeFiles/Machine.dir/CoffeeMachine.cpp.obj	6497f2c6246f33ec
+1	1083	643736404	CMakeFiles/Machine.dir/MachineItem.cpp.obj	a7bcccc6cb6bdbb3
+15	476	643736330	CMakeFiles/Machine.dir/Wallet.cpp.obj	18bfdd61377e2ab7
+1	505	643736482	CMakeFiles/Machine.dir/Runtime.cpp.obj	c3655230868f887d
+14	838	643736404	CMakeFiles/Machine.dir/WendingMachine.cpp.obj	915277fc2ced28f7
+506	766	643736482	Machine.exe	b3f5a0b1d3a25a96
+1	490	643736514	CMakeFiles/Machine.dir/Runtime.cpp.obj	c3655230868f887d
+491	786	643736514	Machine.exe	b3f5a0b1d3a25a96

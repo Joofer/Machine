@@ -1,9 +1,10 @@
 ﻿#pragma once
 
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <map>
 #include <vector>
+#include "MachineItem.h"
 
 using namespace std;
 
@@ -13,17 +14,19 @@ private:
 
 protected:
 	string name;
-	map<string, int> items;
+	vector<MachineItem> items;
 	unsigned int money;
 public:
 	Machine();
 	~Machine();
 	virtual void SetName(string name);
 	virtual string GetName();
-	virtual void Add(string item, int value);
-	virtual bool Take(string item, int value);
+	virtual void Add(MachineItem item);
+	virtual void Add(vector<MachineItem>::iterator start, vector<MachineItem>::iterator end);
+	virtual bool Take(string item);
 	virtual bool Delete(string item);
 	virtual bool Change(string item, int value);
 	virtual int Find(string item);
+	virtual MachineItem FindItem(string item);
 	virtual string Check();
 };

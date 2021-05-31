@@ -20,15 +20,19 @@ int main()
 	temp_ingredients = { {"coffee_beans", 1}, {"water", 1} };
 	temp_item = new MachineItem("espresso", 10, 1.19, temp_ingredients.begin(), temp_ingredients.end());
 	items.push_back(*temp_item);
+	delete temp_item;
 	temp_ingredients = { {"coffee_beans", 1}, {"water", 2} };
 	temp_item = new MachineItem("americano", 10, 1.99, temp_ingredients.begin(), temp_ingredients.end());
 	items.push_back(*temp_item);
+	delete temp_item;
 	temp_ingredients = { {"coffee_beans", 1}, {"water", 1}, {"milk", 2} };
 	temp_item = new MachineItem("cappuccino", 10, 4.99, temp_ingredients.begin(), temp_ingredients.end());
 	items.push_back(*temp_item);
+	delete temp_item;
 	temp_ingredients = { {"coffee_beans", 1}, {"milk", 2} };
 	temp_item = new MachineItem("latte", 10, 4.99, temp_ingredients.begin(), temp_ingredients.end());
 	items.push_back(*temp_item);
+	delete temp_item;
 	machine->Add(items.begin(), items.end());
 
 	while (action[0] != 'x')
@@ -44,6 +48,7 @@ int main()
 			error = runtime->Buy(wallet, machine, action);
 			if (error != -1)
 				runtime->ThrowError(Error(error));
+			runtime->PrintSubtraction(&machine->FindItem(action));
 			runtime->PrintMoney(wallet);
 			break;
 		case 'H':

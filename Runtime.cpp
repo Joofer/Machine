@@ -49,6 +49,11 @@ void RuntimeListener::PrintMoney(Wallet* wallet)
 	cout << "You have " << wallet->GetMoney() << endl;
 }
 
+void RuntimeListener::PrintSubtraction(MachineItem* item)
+{
+	cout << " - " << item->GetPrice() << endl;
+}
+
 void RuntimeListener::PrintMain()
 {
 	cout << "=====================================" << endl

@@ -33,7 +33,7 @@ int main()
 	temp_item = new MachineItem("latte", 10, 4.99, temp_ingredients.begin(), temp_ingredients.end());
 	items.push_back(*temp_item);
 	delete temp_item;
-	machine->Add(items.begin(), items.end());
+	machine->Add(items.begin(), items.end()); // Loading coffee machine
 
 	while (action[0] != 'x')
 	{
@@ -48,7 +48,8 @@ int main()
 			error = runtime->Buy(wallet, machine, action);
 			if (error != -1)
 				runtime->ThrowError(Error(error));
-			runtime->PrintSubtraction(&machine->FindItem(action));
+			else
+				runtime->PrintSubtraction(&machine->FindItem(action));
 			runtime->PrintMoney(wallet);
 			break;
 		case 'H':

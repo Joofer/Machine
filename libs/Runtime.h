@@ -18,7 +18,7 @@ class RuntimeListener
 private:
 public:
 	RuntimeListener();
-	int Buy(Wallet* wallet, Machine* machine, string item);
+	static int Buy(Wallet* wallet, Machine* machine, string item);
 	void ThrowError(Error error);
 	void PrintMoney(Wallet* wallet);
 	void PrintSubtraction(MachineItem* item);
